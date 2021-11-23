@@ -1,4 +1,4 @@
-function addCard(pokemonName,imgSrc,hp,att,def,spcAtt,spcDef,speed){
+function addCard(pokemonName,imgSrc,hp,att,def,spcAtt,spcDef,speed,games){
     //Main li
     const cardLiEl = document.createElement('li')
     cardLiEl.setAttribute('class','card')
@@ -37,8 +37,16 @@ function addCard(pokemonName,imgSrc,hp,att,def,spcAtt,spcDef,speed){
     const liSpeed = document.createElement('li')
     liSpeed.textContent=`SPEED: ${speed}`
     ulEl.append(liSpeed)
+    const liGames = document.createElement('li')
+    liGames.textContent=`Games: ${games}`
+    ulEl.append(liGames)
+
 }
 
 for(let element of data){
-    addCard(element.name,element.sprites.other['official-artwork'].front_default,element.stats[0].base_stat,element.stats[1].base_stat,element.stats[2].base_stat,element.stats[3].base_stat,element.stats[4].base_stat,element.stats[5].base_stat)
+    let gamesText = 'Games: '
+    for(let game of element.game_indices){
+        gamesText += game.version.name + ", "
+    }
+    addCard(element.name,element.sprites.other['official-artwork'].front_default,element.stats[0].base_stat,element.stats[1].base_stat,element.stats[2].base_stat,element.stats[3].base_stat,element.stats[4].base_stat,element.stats[5].base_stat,gamesText)
 }
