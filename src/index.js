@@ -1,4 +1,12 @@
 function addCard(pokemonName,imgSrc,hp,att,def,spcAtt,spcDef,speed,games){
+
+    //Capitalize first letter of pokemon name cuz it was annoying me that it wasnt the same as your photo.
+    
+    function capitalizeFirstLetter(string) {
+        return string[0].toUpperCase() + string.slice(1);
+    }
+    let name = capitalizeFirstLetter(pokemonName)
+
     //Main li
     const cardLiEl = document.createElement('li')
     cardLiEl.setAttribute('class','card')
@@ -6,7 +14,7 @@ function addCard(pokemonName,imgSrc,hp,att,def,spcAtt,spcDef,speed,games){
     //H2
     const h2El = document.createElement('h2')
     h2El.setAttribute('class','card--title')
-    h2El.textContent= pokemonName
+    h2El.textContent= name
     cardLiEl.append(h2El)
     //Img
     const imgEl = document.createElement('img')
