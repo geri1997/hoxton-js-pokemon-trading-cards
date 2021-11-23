@@ -44,7 +44,7 @@ function addCard(pokemonName,imgSrc,hp,att,def,spcAtt,spcDef,speed,games){
 }
 
 for(let element of data){
-    let gamesText = 'Games: '
+    let gamesText = ''
     for(let game of element.game_indices){
         gamesText += game.version.name + ", "
     }
